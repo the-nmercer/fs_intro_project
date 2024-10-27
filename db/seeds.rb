@@ -14,16 +14,18 @@ breeds = breeds_response['message']
 Dog.destroy_all
 
 dog_images = []
-breeds.each do |breed, sub_breeds|
+random_breeds = breeds.keys.shuffle
+
+random_breeds.each do |breed|
   image_response = fetch_data("https://dog.ceo/api/breed/#{breed}/images/random")
 
   dog_images << {
     breed: breed,
     image_url: image_response['message'],
-    sub_breed: sub_breeds.sample || ''
+    sub_breed: breeds[breed].sample || ''
   }
 
-  break if dog_images.size >= 10
+  break if dog_images.size >= 200
 end
 
 dog_images.each do |dog_data|

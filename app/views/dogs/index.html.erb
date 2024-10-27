@@ -1,18 +1,10 @@
-<h1>List of Dogs</h1>
+<h1>Dogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Sub Breed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td><img src="<%= dog.image_url %>" alt="Dog image" width="100" /></td>
-        <td><%= dog.sub_breed&.name || 'N/A' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="dogs">
+  <% @dogs.each do |dog| %>
+    <div class="dog">
+      <h2><%= dog.breed.capitalize %></h2> <!-- Display the breed -->
+      <img src="<%= dog.image_url %>" alt="<%= dog.breed %>">
+    </div>
+  <% end %>
+</div>

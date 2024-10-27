@@ -1,10 +1,10 @@
 class BreedsController < ApplicationController
   def index
-    @breeds = Breed.all
+    @breeds = Dog.select(:breed).distinct
   end
 
   def show
-    @breed = Breed.find(params[:id])
-    @dogs = @breed.dogs.includes(:owner, :sub_breed) # Load dogs associated with the breed
+    @breed = params[:breed_id]
+    @dogs = Dog.where(breed: @breed)
   end
 end

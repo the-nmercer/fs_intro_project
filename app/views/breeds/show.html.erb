@@ -1,0 +1,13 @@
+<h1><%= @breed.titleize %> Dogs</h1>
+
+<%= link_to 'Back to Breeds', breeds_path, class: 'back-link' %>
+
+<div class="dog-list">
+  <% @dogs.each do |dog| %>
+    <div class="dog-item">
+      <%= link_to image_tag(dog.image_url, alt: dog.breed, style: 'width: 200px; height: auto;'), dog_path(dog) %>
+      <p>Owner: <%= dog.owner&.name || 'Unknown' %></p>
+      <p>Breed: <%= dog.breed.titleize %></p>
+    </div>
+  <% end %>
+</div>

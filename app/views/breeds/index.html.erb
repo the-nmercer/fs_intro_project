@@ -1,0 +1,9 @@
+<h1>Dog Breeds</h1>
+
+<div class="breed-list">
+  <% @breeds.each do |dog| %>
+    <div class="breed-item">
+      <%= link_to dog.breed.titleize, breed_path(dog.breed), class: "breed-link" %>
+    </div>
+  <% end %>
+</div>

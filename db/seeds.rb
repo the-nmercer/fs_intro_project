@@ -36,7 +36,7 @@ end
 
 dog_images.each do |dog_data|
   sub_breed = SubBreed.find_or_create_by(name: dog_data[:sub_breed]) unless dog_data[:sub_breed].blank?
-  Dog.create(breed: dog_data[:breed], image_url: dog_data[:image_url], sub_breed: sub_breed, owner: dog_data[:owner]) # Link the owner to the dog
+  Dog.create(breed: dog_data[:breed], image_url: dog_data[:image_url], sub_breed: sub_breed, owner: dog_data[:owner])
 end
 
 puts "Seeded #{Dog.count} dogs and #{Owner.count} owners."

@@ -1,3 +1,3 @@
 class Dog < ApplicationRecord
-  belongs_to :sub_breed
+  belongs_to :sub_breed, optional: true
 end

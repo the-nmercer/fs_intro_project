@@ -1,0 +1,120 @@
+<h1>About This Project</h1>
+
+<h2>Datasets Description</h2>
+
+<p>
+  This project uses two sets of data. The first comes from <a href="https://dog.ceo/dog-api">Dog CEO API.</a>
+</p>
+<p>
+  The second data set is created using <a href="https://github.com/faker-ruby/faker">Faker.</a>
+</p>
+<p>
+  There are four tables in this database. Dogs, Owners, Breeds, and SubBreeds. Each dog belongs to an owner
+  and has a sub-breed. Each owner owns a dog. A subbreed belongs to a breed and a dog. Some breeds have sub-breeds.
+</p>
+
+<h3>Dogs Table</h3>
+<p>The Dogs table stores information about individual dogs, including their breed, image, and ownership details.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>breed</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>image_url</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>sub_breed_id</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>owner_id</td>
+      <td>Integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Owners Table</h3>
+<p>The Owners table contains information about the owners of the dogs, including their names.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Breeds table</h3>
+<p>The Breeds table stores the various dog breeds available in the dataset, capturing the name of each breed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+<h3>SubBreeds table</h3>
+<p>The SubBreeds table contains the specific sub-breeds associated with each dog breed, including the name of the sub-breed and a reference to its parent breed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>breed_id</td>
+      <td>Integer (Foreign Key)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Entity Relationship Diagram</h2>
+<%= image_tag 'dogs_erd.drawio.png', alt: 'ERD Diagram', class: 'img-fluid' %>

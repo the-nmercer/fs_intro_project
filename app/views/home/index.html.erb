@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>All Dogs</h1>
+
+<div class="dog-list">
+  <% @dogs.each do |dog| %>
+    <div class="dog-item">
+      <img src="<%= dog.image_url %>" alt="<%= dog.breed %>" style="width: 200px; height: auto;"/>
+      <p>Owner: <%= dog.owner&.name || 'Unknown' %></p>
+      <p>Breed: <%= dog.breed.titleize %> <%= dog.sub_breed.present? ? "(#{dog.sub_breed.name})" : "" %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<img src="<%= @dog.image_url %>" alt="<%= @dog.breed %>" style="width: 300px; height: auto;"/>
+
+<h2>Details</h2>
+<ul>
+  <li><strong>Breed:</strong> <%= @dog.breed.titleize %></li>
+  <li><strong>Sub-Breed:</strong> <%= @dog.sub_breed.present? ? @dog.sub_breed.name.titleize : 'None' %></li>
+  <li><strong>Owner:</strong> <%= @dog.owner&.name || 'Unknown' %></li>
+</ul>

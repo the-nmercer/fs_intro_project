@@ -3,9 +3,9 @@
 <div class="dog-list">
   <% @dogs.each do |dog| %>
     <div class="dog-item">
-      <img src="<%= dog.image_url %>" alt="<%= dog.breed %>" style="width: 200px; height: auto;"/>
+      <%= link_to image_tag(dog.image_url, alt: dog.breed, style: "width: 200px; height: auto;"), dog_path(dog) %>
       <p>Owner: <%= dog.owner&.name || 'Unknown' %></p>
-      <p>Breed: <%= dog.breed.titleize %> <%= dog.sub_breed.present? ? "(#{dog.sub_breed.name})" : "" %></p>
+      <p>Breed: <%= dog.breed.titleize %> <%= dog.sub_breed.present? ? "(#{dog.sub_breed.name.titleize})" : "" %></p>
     </div>
   <% end %>
 </div>

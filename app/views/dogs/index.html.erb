@@ -1,10 +1,18 @@
-<h1>Dogs</h1>
+<% search_term = params[:search].present? ? params[:search] : 'All Dogs' %>
+<h1>Results for "<%= search_term %>"</h1>
 
-<div class="dogs">
+<%= form_with url: dogs_path, method: :get, local: true do %>
+  <%= label_tag :search, "Search Dogs:" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Enter breed or owner's name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div class="dog-list">
   <% @dogs.each do |dog| %>
-    <div class="dog">
-      <h2><%= dog.breed.capitalize %></h2> <!-- Display the breed -->
-      <img src="<%= dog.image_url %>" alt="<%= dog.breed %>">
+    <div class="dog-item">
+      <%= link_to image_tag(dog.image_url, alt: dog.breed, style: "width: 200px; height: auto;"), dog_path(dog) %>
+      <p>Owner: <%= dog.owner&.name || 'Unknown' %></p>
+      <p>Breed: <%= dog.breed.titleize %> <%= dog.sub_breed.present? ? "(#{dog.sub_breed.name.titleize})" : "" %></p>
     </div>
   <% end %>
 </div>

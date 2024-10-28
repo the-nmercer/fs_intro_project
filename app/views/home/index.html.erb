@@ -1,5 +1,13 @@
 <h1>All Dogs</h1>
 
+<%= form_with url: dogs_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :search, "Search Dogs" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter breed or owner name" %>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
+
 <% paginated_dogs = Kaminari.paginate_array(@dogs).page(params[:page]).per(20) %>
 
 <div class="dog-list">

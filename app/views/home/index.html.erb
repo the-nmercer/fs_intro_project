@@ -1,7 +1,9 @@
 <h1>All Dogs</h1>
 
+<% paginated_dogs = Kaminari.paginate_array(@dogs).page(params[:page]).per(20) %>
+
 <div class="dog-list">
-  <% @dogs.each do |dog| %>
+  <% paginated_dogs.each do |dog| %>
     <div class="dog-item">
       <%= link_to image_tag(dog.image_url, alt: dog.breed, style: "width: 200px; height: auto;"), dog_path(dog) %>
       <p>Owner: <%= dog.owner&.name || 'Unknown' %></p>
@@ -9,3 +11,5 @@
     </div>
   <% end %>
 </div>
+
+<%= paginate paginated_dogs %>
